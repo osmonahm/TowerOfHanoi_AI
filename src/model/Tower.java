@@ -3,25 +3,17 @@ package model;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-public class Rod
+public class Tower
 {
-    
-    private final char rodName;
     private Stack<Disk> disks;
     
-    public Rod( char rodName, int diskNum )
+    public Tower( Stack<Disk> disks )
     {
-        this.rodName = rodName;
-        disks = new Stack<>();
-        
-        for( int i = diskNum; i >= 1; i-- )
-            disks.add( new Disk( i ) );
-        
+        this.disks = disks;
     }
     
-    public Rod( char rodName )
+    public Tower()
     {
-        this.rodName = rodName;
         disks = new Stack<>();
     }
     
@@ -48,11 +40,6 @@ public class Rod
     public Disk pop()
     {
         return disks.pop();
-    }
-    
-    public char getRodName()
-    {
-        return rodName;
     }
     
     public boolean isEmpty()
