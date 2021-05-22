@@ -1,4 +1,5 @@
 package ai;
 
-public class Agent extends Player{
+public class Agent {
+
 }
