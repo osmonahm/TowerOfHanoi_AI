@@ -1,32 +1,33 @@
 package components;
 
 import model.Disk;
+import model.Tower;
 
 public class Node
 {
-    private final char srcRod;
-    private final char destRod;
-    private final Disk disk;
+    private final Tower srcTower;
+    private final Tower dstTower;
+    private final Node parent;
     
-    public Node( char srcRod, char destRod, Disk disk )
+    public Node( Tower srcTower, Tower dstTower, Node parent )
     {
-        this.srcRod = srcRod;
-        this.destRod = destRod;
-        this.disk = disk;
+        this.srcTower = srcTower;
+        this.dstTower = dstTower;
+        this.parent = parent;
     }
     
-    public char getSrcRod()
+    public Tower getSrcTower()
     {
-        return srcRod;
+        return srcTower;
     }
     
-    public char getDestRod()
+    public Tower getDstTower()
     {
-        return destRod;
+        return dstTower;
     }
     
-    public Disk getDisk()
+    public Tower getParent()
     {
-        return disk;
+        return parent;
     }
 }
