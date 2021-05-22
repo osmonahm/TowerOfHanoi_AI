@@ -3,61 +3,60 @@ package model;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-public class Rod {
-
+public class Rod
+{
+    
     private final char rodName;
     private Stack<Disk> disks;
-
-    public Rod(char rodName, int diskNum){
+    
+    public Rod( char rodName, int diskNum )
+    {
         this.rodName = rodName;
         disks = new Stack<>();
-
-        for(int i = diskNum; i >= 1; i--){
-            disks.add(new Disk(i));
-        }
-
+        
+        for( int i = diskNum; i >= 1; i-- )
+            disks.add( new Disk( i ) );
+        
     }
-
-    public Rod(char rodName){
+    
+    public Rod( char rodName )
+    {
         this.rodName = rodName;
         disks = new Stack<>();
     }
-
-    public boolean diskSupported(Disk disk){
-
+    
+    public boolean diskSupported( Disk disk )
+    {
         return disks.isEmpty() || peek().getDiskSize() > disk.getDiskSize();
-
     }
-
-    public void add(Disk disk){
-
-        if(diskSupported(disk))
-            disks.add(disk);
-
+    
+    public void add( Disk disk )
+    {
+        if( diskSupported( disk ) ) disks.add( disk );
     }
-
-    public Stack<Disk> getDisks() {
+    
+    public Stack<Disk> getDisks()
+    {
         return disks;
     }
-
-    public Disk peek(){
-        try{
-            return disks.peek();
-        }catch (EmptyStackException e){
-            return null;
-        }
+    
+    public Disk peek()
+    {
+        try { return disks.peek(); } catch( EmptyStackException e ) { return null; }
     }
-
-    public Disk pop(){
+    
+    public Disk pop()
+    {
         return disks.pop();
     }
-
-    public char getRodName(){
+    
+    public char getRodName()
+    {
         return rodName;
     }
-
-    public boolean isEmpty(){
+    
+    public boolean isEmpty()
+    {
         return disks.isEmpty();
     }
-
 }
