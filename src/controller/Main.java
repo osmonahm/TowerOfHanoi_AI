@@ -20,6 +20,7 @@ public class Main {
         gc.printRods();
         gc.moveDisk('B', 'C');
         gc.printRods();
+        gc.printRods();
 
     }
 }
