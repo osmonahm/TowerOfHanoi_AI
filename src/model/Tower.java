@@ -22,9 +22,9 @@ public class Tower
         return disks.isEmpty() || peek().getDiskSize() > disk.getDiskSize();
     }
     
-    public void add( Disk disk )
+    public void push( Disk disk )
     {
-        if( diskSupported( disk ) ) disks.add( disk );
+        if( diskSupported( disk ) ) disks.push( disk );
     }
     
     public Stack<Disk> getDisks()

@@ -3,6 +3,7 @@ package controller;
 import model.Disk;
 import model.Tower;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Controller
@@ -31,7 +32,7 @@ public class Controller
         else if( dstTower.diskSupported( srcTower.peek() ) )
         {
             System.out.println( "Disk moved: " + srcTower.peek().getDiskSize() + " => " );
-            dstTower.add( srcTower.pop() );
+            dstTower.push( srcTower.pop() );
         }
         else
         {
