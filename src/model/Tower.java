@@ -47,7 +47,7 @@ public class Tower
         return disks.isEmpty();
     }
 
-    public boolean equals(Rod otherRod){
+    public boolean equals(Tower otherRod){
         if(disks.size() != otherRod.disks.size()){
             return false;
         }

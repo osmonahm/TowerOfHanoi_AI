@@ -26,7 +26,7 @@ public class Node
         return dstTower;
     }
     
-    public Tower getParent()
+    public Node getParent()
     {
         return parent;
     }
