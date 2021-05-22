@@ -5,7 +5,7 @@ public class MiddleNodeChecker {
     private int moves;
 
     public boolean areEqual(Node leftSideNode, InvertedNode rightSideNode){
-
+        return leftSideNode.equals(rightSideNode);
     }
 
     public void increase(){
