@@ -48,14 +48,13 @@ public class Tower
     }
 
     public boolean equals(Tower otherRod){
-        if(disks.size() != otherRod.disks.size()){
+        if(disks.size() != otherRod.disks.size())
             return false;
-        }
-        for(int i = 0; i < disks.size(); i++) {
-            if(disks.get(i).getDiskSize() != otherRod.disks.get(i).getDiskSize()){
+
+        for(int i = 0; i < disks.size(); i++)
+            if(disks.get(i).getDiskSize() != otherRod.disks.get(i).getDiskSize())
                 return false;
-            }
-        }
+
         return true;
     }
 }
