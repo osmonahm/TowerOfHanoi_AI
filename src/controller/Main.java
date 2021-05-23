@@ -14,14 +14,16 @@ public class Main
 
         Agent agent = new Agent(9);
         Node solution = agent.solve();
-        solution.printMoves();
+        //solution.printMoves();
+        System.out.println(solution.getCost());
+        //DUHET ME MARR EDHE PJESEN TJETER TE LEVIZJEVE TEK RIGHTSIDENODE....
 
         System.out.println(Calendar.getInstance().get(Calendar.SECOND));
 
-        BFSAgent a = new BFSAgent(9);
-        Node s = a.solve();
-        s.printTowers();
-        System.out.println(Calendar.getInstance().get(Calendar.SECOND));
+//        BFSAgent a = new BFSAgent(9);
+//        Node s = a.solve();
+//        s.printTowers();
+//        System.out.println(Calendar.getInstance().get(Calendar.SECOND));
 
     }
 }
