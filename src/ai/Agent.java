@@ -65,7 +65,7 @@ public class Agent {
               //  System.out.println("Exploring Left Parents");
                 childNodes(leftParents.poll(), LEFT);
             }
-
+            //Check for middle State
             for(Node leftNode: leftFrontier)
                 for(Node rightNode: rightFrontier) {
                 //    System.out.println("Goal Check");

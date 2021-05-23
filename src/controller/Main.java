@@ -12,7 +12,7 @@ public class Main
     {
         System.out.println(Calendar.getInstance().get(Calendar.SECOND));
 
-        Agent agent = new Agent(9);
+        Agent agent = new Agent(2);
         Node solution = agent.solve();
         //solution.printMoves();
         System.out.println(solution.getCost());

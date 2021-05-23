@@ -7,8 +7,8 @@ public class Node
     private final Tower ATower;
     private final Tower BTower;
     private final Tower CTower;
-    private final Node parent;
-    private final int cost;
+    private Node parent;
+    private int cost;
     
     public Node( Tower ATower, Tower BTower, Tower CTower, Node parent, int cost )
     {
@@ -72,4 +72,5 @@ public class Node
             parent = parent.getParent();
         }
     }
+
 }
