@@ -2,16 +2,23 @@ package components;
 
 public class MiddleNodeChecker {
 
-    private int moves;
+    private final int minMoves;
+    private final int minMovesOnMiddle;
+
+    public MiddleNodeChecker(int numOfDisks){
+        minMoves = (int) Math.pow(2, numOfDisks) - 1;
+        minMovesOnMiddle = minMoves / 2;
+    }
 
 
-    public void increase(){
-        ++moves;
+    public boolean checkNode(Node leftNode, Node rightNode){
+        if(leftNode.getCost() >= minMovesOnMiddle && rightNode.getCost() >= minMovesOnMiddle)
+            return leftNode.equals(rightNode);
+        return false;
     }
-    public void decrease(){
-        ++moves;
+
+    public boolean goalCheck(Node currentNode, Node goalNode){
+        return currentNode.equals(goalNode);
     }
-    public int getMovesNum(){
-        return moves;
-    }
+
 }

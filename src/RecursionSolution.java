@@ -2,7 +2,7 @@ public class RecursionSolution
 {
     public static void main( String args[] )
     {
-        int n = 3;
+        int n = 9;
         TowerOfHanoi( n, 'A', 'C', 'B' );
     }
     

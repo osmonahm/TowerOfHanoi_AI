@@ -1,25 +1,27 @@
 package controller;
 
+import ai.Agent;
+import ai.BFSAgent;
+import components.Node;
+
+import java.util.Calendar;
+
 public class Main
 {
     public static void main( String[] args )
     {
-        Controller c = new Controller();
-        c.moveDisk( c.getTowerA(), c.getTowerC() );
-        c.printRods();
-        c.moveDisk( c.getTowerA(), c.getTowerC() );
-        c.printRods();
-        c.moveDisk( c.getTowerB(), c.getTowerC() );
-        c.printRods();
-        c.moveDisk( c.getTowerC(), c.getTowerB() );
-        c.printRods();
-        c.moveDisk( c.getTowerC(), c.getTowerA() );
-        c.printRods();
-        c.moveDisk( c.getTowerA(), c.getTowerC() );
-        c.printRods();
-        c.moveDisk( c.getTowerC(), c.getTowerB() );
-        c.printRods();
-        c.moveDisk( c.getTowerB(), c.getTowerC() );
-        c.printRods();
+        System.out.println(Calendar.getInstance().get(Calendar.SECOND));
+
+        Agent agent = new Agent(9);
+        Node solution = agent.solve();
+        solution.printMoves();
+
+        System.out.println(Calendar.getInstance().get(Calendar.SECOND));
+
+        BFSAgent a = new BFSAgent(9);
+        Node s = a.solve();
+        s.printTowers();
+        System.out.println(Calendar.getInstance().get(Calendar.SECOND));
+
     }
 }

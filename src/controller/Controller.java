@@ -18,9 +18,9 @@ public class Controller
         for( int i = diskNum; i >= 1; i-- )
             disks.add( new Disk( i ) );
         
-        towerA = new Tower( disks );
-        towerB = new Tower();
-        towerC = new Tower();
+        towerA = new Tower( 'A', disks );
+        towerB = new Tower('B');
+        towerC = new Tower('C');
     }
     
     public void moveDisk( Tower srcTower, Tower dstTower )
