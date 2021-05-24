@@ -7,6 +7,9 @@ import model.Tower;
 
 import java.util.LinkedList;
 
+/**
+ * The type Agent.
+ */
 public class Agent
 {
     private static final int LEFT = 0;
@@ -20,6 +23,11 @@ public class Agent
     private LinkedList<Node> exploredRight;
     private LinkedList<Node> rightFrontier;
     
+    /**
+     * Instantiates a new Agent.
+     *
+     * @param numOfDisks the num of disks
+     */
     public Agent( int numOfDisks )
     {
         this.numOfDisks = numOfDisks;
@@ -40,6 +48,11 @@ public class Agent
         checker = new MiddleNodeCheck( numOfDisks );
     }
     
+    /**
+     * Solve node [ ].
+     *
+     * @return the node [ ]
+     */
     public Node[] solve()
     {
         leftFrontier = new LinkedList<>();
@@ -77,11 +90,24 @@ public class Agent
         }
     }
     
+    /**
+     * Goal test boolean.
+     *
+     * @param leftSideNode  the left side node
+     * @param rightSideNode the right side node
+     * @return the boolean
+     */
     public boolean GoalTest( Node leftSideNode, Node rightSideNode )
     {
         return checker.checkNode( leftSideNode, rightSideNode );
     }
     
+    /**
+     * Child nodes.
+     *
+     * @param parent the parent
+     * @param side   the side
+     */
     public void childNodes( Node parent, int side )
     {
         Node clonedParent = parent.clone();
@@ -112,6 +138,13 @@ public class Agent
         if( child6 != null && !stateExploredOrAdded( child6, side ) ) frontier.add( child6 );
     }
     
+    /**
+     * State explored or added boolean.
+     *
+     * @param state the state
+     * @param side  the side
+     * @return the boolean
+     */
     public boolean stateExploredOrAdded( Node state, int side )
     {
         LinkedList<Node> frontier;

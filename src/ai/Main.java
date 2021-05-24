@@ -2,10 +2,18 @@ package ai;
 
 import components.Node;
 
+/**
+ * The type Main.
+ */
 public class Main
 {
     private static int numOfDisks;
     
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main( String[] args )
     {
         numOfDisks = 3;
@@ -14,6 +22,9 @@ public class Main
         RecursiveAlgorithm();
     }
     
+    /**
+     * Bidirectional algorithm.
+     */
     public static void BidirectionalAlgorithm()
     {
         System.out.println( "Bidirectional Algorithm!\n" );
@@ -40,6 +51,9 @@ public class Main
         System.out.println( "Elapsed time = " + elapsedTime + " ms" );
     }
     
+    /**
+     * BFS algorithm.
+     */
     public static void BFSAlgorithm()
     {
         System.out.println( "\nBFS Algorithm!\n" );
@@ -61,6 +75,9 @@ public class Main
         System.out.println( "Elapsed time = " + elapsedTime + " ms" );
     }
     
+    /**
+     * Recursive algorithm.
+     */
     public static void RecursiveAlgorithm()
     {
         System.out.println( "\nRecursive Algorithm!\n" );

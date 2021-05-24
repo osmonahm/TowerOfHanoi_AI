@@ -6,6 +6,9 @@ import model.Tower;
 
 import java.util.LinkedList;
 
+/**
+ * The type Bfs agent.
+ */
 public class BFSAgent
 {
     private final int numOfDisks;
@@ -14,6 +17,11 @@ public class BFSAgent
     private final Node goalNode;
     private final LinkedList<Node> frontier, explored;
     
+    /**
+     * Instantiates a new Bfs agent.
+     *
+     * @param numOfDisks the num of disks
+     */
     public BFSAgent( int numOfDisks )
     {
         this.numOfDisks = numOfDisks;
@@ -37,6 +45,11 @@ public class BFSAgent
         goalNode = new Node( goalATower, goalBTower, goalCTower, null, 0 );
     }
     
+    /**
+     * Solve node.
+     *
+     * @return the node
+     */
     public Node solve()
     {
         frontier.add( new Node( ATower, BTower, CTower, null, 0 ) );
@@ -57,11 +70,22 @@ public class BFSAgent
         }
     }
     
+    /**
+     * Goal test boolean.
+     *
+     * @param currentNode the current node
+     * @return the boolean
+     */
     public boolean goalTest( Node currentNode )
     {
         return currentNode.equals( goalNode );
     }
     
+    /**
+     * Child nodes.
+     *
+     * @param parent the parent
+     */
     public void childNodes( Node parent )
     {
         Node clonedParent = parent.clone();
@@ -86,6 +110,12 @@ public class BFSAgent
         if( child6 != null && !stateExploredOrAdded( child6 ) ) frontier.add( child6 );
     }
     
+    /**
+     * State explored or added boolean.
+     *
+     * @param state the state
+     * @return the boolean
+     */
     public boolean stateExploredOrAdded( Node state )
     {
         //State comparision - frontier
