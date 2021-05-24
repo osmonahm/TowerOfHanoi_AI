@@ -5,8 +5,8 @@ import java.util.Stack;
 
 public class Tower
 {
-    private Stack<Disk> disks;
     private final char towerName;
+    private Stack<Disk> disks;
     
     public Tower( char towerName, Stack<Disk> disks )
     {
@@ -14,7 +14,7 @@ public class Tower
         this.towerName = towerName;
     }
     
-    public Tower(char towerName)
+    public Tower( char towerName )
     {
         disks = new Stack<>();
         this.towerName = towerName;
@@ -22,8 +22,8 @@ public class Tower
     
     public boolean diskSupported( Disk disk )
     {
-        if(disks.isEmpty()) return true;
-        else if(disk == null) return false;
+        if( disks.isEmpty() ) return true;
+        else if( disk == null ) return false;
         else return peek().getDiskSize() > disk.getDiskSize();
     }
     
@@ -51,33 +51,34 @@ public class Tower
     {
         return disks.isEmpty();
     }
-
-    public boolean equals(Tower otherTower){
-        if(disks.size() != otherTower.disks.size())
-            return false;
-
-        for(int i = 0; i < disks.size(); i++)
-            if(disks.get(i).getDiskSize() != otherTower.disks.get(i).getDiskSize())
-                return false;
-
+    
+    public boolean equals( Tower otherTower )
+    {
+        if( disks.size() != otherTower.disks.size() ) return false;
+        
+        for( int i = 0; i < disks.size(); i++ )
+            if( disks.get( i ).getDiskSize() != otherTower.disks.get( i ).getDiskSize() ) return false;
+        
         return true;
     }
-
-    public char getTowerName(){
+    
+    public char getTowerName()
+    {
         return towerName;
     }
-
-    public Tower clone(){
+    
+    public Tower clone()
+    {
         Stack<Disk> clonedDisks = new Stack<>();
-        clonedDisks.addAll(disks);
-        return new Tower(towerName, clonedDisks);
+        clonedDisks.addAll( disks );
+        return new Tower( towerName, clonedDisks );
     }
-
-    public void printDisks(){
-        System.out.print(towerName + ": ");
-        for(Disk disk: disks)
-            System.out.print(disk.getDiskSize() + " ");
+    
+    public void printDisks()
+    {
+        System.out.print( towerName + ": " );
+        for( Disk disk : disks )
+            System.out.print( disk.getDiskSize() + " " );
         System.out.println();
     }
-
 }

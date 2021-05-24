@@ -2,6 +2,8 @@ package components;
 
 import model.Tower;
 
+import java.util.Stack;
+
 public class Node
 {
     private final Tower ATower;
@@ -19,58 +21,65 @@ public class Node
         this.cost = cost;
     }
     
-    public Tower getATower()
-    {
-        return ATower;
-    }
+    public Tower getATower() { return ATower; }
     
-    public Tower getBTower()
-    {
-        return BTower;
-    }
-
-    public Tower getCTower(){return CTower;}
+    public Tower getBTower() { return BTower; }
     
-    public Node getParent()
+    public Tower getCTower() { return CTower; }
+    
+    public Node getParent() { return parent; }
+    
+    public int getCost() { return cost; }
+    
+    public Node moveDisk( Tower srcTower, Tower dstTower )
     {
-        return parent;
-    }
-
-    public int getCost(){
-        return cost;
-    }
-
-    public Node moveDisk(Tower srcTower, Tower dstTower )
-    {
-        if( srcTower.isEmpty() || !dstTower.diskSupported( srcTower.peek())) return null;
-        else {
+        if( srcTower.isEmpty() || !dstTower.diskSupported( srcTower.peek() ) ) return null;
+        else
+        {
             dstTower.push( srcTower.pop() );
-            return new Node(ATower, BTower, CTower, this, cost + 1);
+            return new Node( ATower, BTower, CTower, this, cost + 1 );
         }
     }
-
-    public boolean equals(Node another){
-        return getBTower().equals(another.getBTower())
-            && getATower().equals(another.getATower())
-            && getCTower().equals(another.getCTower());
+    
+    public boolean equals( Node another )
+    {
+        return getATower().equals( another.getATower() ) && getBTower().equals( another.getBTower() ) && getCTower().equals( another.getCTower() );
     }
-
-    public Node clone(){
-        return new Node(ATower.clone(), BTower.clone(), CTower.clone(), parent, cost);
+    
+    public Node clone()
+    {
+        return new Node( ATower.clone(), BTower.clone(), CTower.clone(), parent, cost );
     }
-
-    public void printTowers(){
+    
+    public void printTowers()
+    {
         ATower.printDisks();
         BTower.printDisks();
         CTower.printDisks();
+        System.out.println();
     }
-
-    public void printMoves(){
+    
+    public void printMoves()
+    {
         Node parent = this.parent;
-        while (parent != null){
+        while( parent != null )
+        {
             parent.printTowers();
             parent = parent.getParent();
         }
     }
-
+    
+    public void printRecursiveMoves()
+    {
+        Node parent = this.parent;
+        Stack<Node> moves = new Stack<>();
+        while( parent != null )
+        {
+            moves.push( parent );
+            parent = parent.getParent();
+        }
+        
+        while( !moves.isEmpty() )
+            moves.pop().printTowers();
+    }
 }
