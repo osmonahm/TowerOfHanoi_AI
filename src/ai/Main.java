@@ -9,8 +9,8 @@ public class Main
     public static void main( String[] args )
     {
         numOfDisks = 3;
-        BidirectionalAlgorithm();
-        BFSAlgorithm();
+        //BidirectionalAlgorithm();
+        //BFSAlgorithm();
         RecursiveAlgorithm();
     }
     
@@ -70,6 +70,7 @@ public class Main
         RecursionSolution rs = new RecursionSolution();
         rs.towerOfHanoi( numOfDisks, 'A', 'C', 'B' );
     
+        System.out.println( "Cost = " + rs.getCost() );
         long end = System.currentTimeMillis();
         long elapsedTime = end - start;
         System.out.println( "Elapsed time = " + elapsedTime + " ms" );
